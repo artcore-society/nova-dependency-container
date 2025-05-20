@@ -2,6 +2,7 @@
 
 namespace Alexwenzel\DependencyContainer;
 
+use Exception;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\FieldCollection;
@@ -11,11 +12,7 @@ trait HasDependencies
 {
     use HasChildFields;
 
-    /**
-     * @param  NovaRequest  $request
-     * @return FieldCollection
-     */
-    public function availableFields(NovaRequest $request)
+    public function availableFields(NovaRequest $request): FieldCollection
     {
         $method = $this->fieldsMethod($request);
 
@@ -48,11 +45,9 @@ trait HasDependencies
     /**
      * Check if request needs to extract child fields
      *
-     * @param  NovaRequest  $request
      * @param  mixed  $model
-     * @return bool
      */
-    protected function extractableRequest(NovaRequest $request, $model)
+    protected function extractableRequest(NovaRequest $request, $model): bool
     {
         // if form was submitted to update (method === 'PUT')
         if ($request->isUpdateOrUpdateAttachedRequest() && $request->method() == 'PUT') {
@@ -69,20 +64,18 @@ trait HasDependencies
 
     /**
      * @param  mixed  $field
-     * @param  NovaRequest  $request
      * @return mixed
      *
      * @todo: implement
      */
     public function filterFieldForRequest($field, NovaRequest $request)
     {
+        throw new Exception(sprintf('%s: Has not been implemented and is marked as todo', __METHOD__));
+
         // @todo: filter fields for request, e.g. show/hideOnIndex, create, update or whatever
         return $field;
     }
 
-    /**
-     * @return bool
-     */
     protected function doesRouteRequireChildFields(): bool
     {
         return Str::endsWith(Route::currentRouteAction(), [

@@ -1,6 +1,6 @@
 {
-    "name": "alexwenzel/nova-dependency-container",
-    "description": "A Laravel Nova 4 form container for grouping fields that depend on other field values.",
+    "name": "artcore-society/nova-dependency-container",
+    "description": "nova-dependency-container fork to support Nova 5",
     "keywords": [
         "laravel",
         "nova",
@@ -11,10 +11,6 @@
         {
             "name": "alexwenzel",
             "email": "alexander.wenzel.berlin@gmail.com"
-        },
-        {
-            "name": "Epartment E-commerce",
-            "email": "support@epartment.nl"
         }
     ],
     "license": "MIT",
@@ -28,12 +24,19 @@
             "Alexwenzel\\DependencyContainer\\": "src/"
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "extra": {
         "laravel": {
             "providers": [
                 "Alexwenzel\\DependencyContainer\\FieldServiceProvider"
             ]
-        }
+        },
+        "forked-from": "alexwenzel/nova-dependency-container"
     },
     "config": {
         "sort-packages": true

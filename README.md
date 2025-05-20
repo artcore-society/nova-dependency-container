@@ -1,3 +1,9 @@
+> [!IMPORTANT] 
+> This package was forked from [nova-dependency-container](https://github.com/alexwenzel/nova-dependency-container) as we require the upgrade before the package is bumped for Nova 5.
+> Only the name of the package has been changed, To make a clear separation with our own Package repository
+> Please resort back to the original package once its updated for Nova 5
+
+
 # nova 4 dependency container
 
 A Laravel Nova 4 form container for grouping fields that depend on other field values.
